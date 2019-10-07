@@ -4,6 +4,8 @@ import AceEditor from "react-ace";
 import { UndoManager } from "brace";
 import "brace/theme/idle_fingers";
 import "brace/ext/searchbox";
+import 'brace/keybinding/vim';
+import 'brace/keybinding/emacs';
 
 import "./styles.css";
 import "./ace-mode-george";
@@ -38,6 +40,7 @@ export default class Editor extends Component {
       <div className="editor">
         <AceEditor
           ref={this.aceEditor}
+          keyboardHandler={this.props.keyBindings}
           width="100%"
           height="100%"
           mode="george"

@@ -19,7 +19,8 @@ export default class App extends Component {
       value: "",
       feedback: "Click the \"Ask George\" button to get feedback.",
       feedbackExpanded: false,
-      openFile: null
+      openFile: null,
+      keyBinding: null,
     };
   }
 
@@ -76,6 +77,7 @@ export default class App extends Component {
             ref={this.editor}
             value={this.state.value}
             onValueChange={this.onValueChange}
+            keyBindings={this.state.keyBinding}
           />
         </div>
 
