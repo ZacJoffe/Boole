@@ -8,6 +8,7 @@ import DownloadButton from "../DownloadButton";
 import FileExplorer from "../FileExplorer";
 import Editor from "../Editor";
 import Output from "../Output";
+import KeyBindings from "../KeyBindings";
 
 export default class App extends Component {
   constructor(props) {
@@ -22,6 +23,8 @@ export default class App extends Component {
       openFile: null,
       keyBinding: null,
     };
+
+    this.handleKeyBindChange = this.handleKeyBindChange.bind(this);
   }
 
   onFileOpen = async (file) => {
@@ -43,6 +46,12 @@ export default class App extends Component {
     if (this.state.openFile !== null) this.state.openFile.set(value);
   };
 
+  handleKeyBindChange(event) {
+    this.setState({
+      keyBinding: event.target.value
+    })
+  };
+
   render() {
     return (
       <div className={"app" + (this.state.feedbackExpanded ? " app-expand-feedback" : "")}>
@@ -62,6 +71,8 @@ export default class App extends Component {
             <DownloadButton
               onDownload={this.onDownload}
             />
+
+            <KeyBindings binding={this.handleKeyBindChange} />
           </ControlBar>
         </div>
 

@@ -1,25 +1,15 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 
 import "./styles.css";
 
-export default class DownloadButton extends Component {
-  static propTypes = {
-    onDownload: PropTypes.func
-  };
-
-  static defaultProps = {
-    onDownload: () => {}
-  };
-
+export default class KeyBindings extends Component {
   render() {
     return (
-      <button
-        className="download-button"
-        onClick={this.props.onDownload}
-      >
-        Download
-      </button>
+      <select value={this.props.binding}>
+        <option value="">Normal</option>
+        <option value="vim">Vim</option>
+        <option value="emacs">Emacs</option>
+      </select>
     );
   }
 }
